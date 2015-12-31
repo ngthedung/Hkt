@@ -6,41 +6,49 @@
 package hkt.com.tinhtien;
 
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.EventObject;
-import javax.swing.JComboBox;
 import javax.swing.JTable;
-import javax.swing.event.CellEditorListener;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.EventListenerList;
-import javax.swing.table.TableCellRenderer;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  *
  * @author MRG
  */
-public class MyRender extends JComboBox implements TableCellRenderer{
-    
+//public class MyRender extends JLabel implements TableCellRenderer{
+public class MyRender extends DefaultTableCellRenderer{
+
     public MyRender(){
         super();
-        addItem("Có");
-        addItem("Nợ");
     }
-
+    
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-        if(isSelected){
-            setForeground(table.getSelectionForeground());
-            super.setBackground(table.getSelectionBackground());
-        }else{
-            setForeground(table.getForeground());
-            setBackground(table.getBackground());
-        }
-
-        boolean isNo = ((Boolean) value).booleanValue();
-        setSelectedIndex(isNo?0:1);
-
+        setHorizontalAlignment(SwingConstants.CENTER);
+        super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         return this;
     }
+    
+    
+//    
+//    public MyRender(){
+//        super();
+//        addItem("Có");
+//        addItem("Nợ");
+//    }
+//
+//    @Override
+//    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+//        if(isSelected){
+//            setForeground(table.getSelectionForeground());
+//            super.setBackground(table.getSelectionBackground());
+//        }else{
+//            setForeground(table.getForeground());
+//            setBackground(table.getBackground());
+//        }
+//
+//        boolean isNo = ((Boolean) value).booleanValue();
+//        setSelectedIndex(isNo?0:1);
+//
+//        return this;
+//    }
 }

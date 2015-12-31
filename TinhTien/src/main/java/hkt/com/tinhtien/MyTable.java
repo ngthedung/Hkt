@@ -22,11 +22,7 @@ public class MyTable extends DefaultTableModel {
     
       @Override
       public boolean isCellEditable(int rowIndex, int columnIndex) {
-      if (columnIndex < 1) {
-        return false;
-      } else {
-        return true;
-      }
+        return columnIndex >= 1;
     }
       
       @Override
